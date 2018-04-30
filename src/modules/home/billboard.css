@@ -1,0 +1,18 @@
+.rank-type {
+  padding: 10px 0 10px 20px;
+  cursor: pointer;
+  background: #f5f5f5;
+  border-bottom: 1px solid #d5d5d5;
+}
+.rank-type > h4 {
+  padding: 2px;
+  margin-bottom: 2px;
+}
+.rank-type:hover {
+  background: #eaeaea;
+}
+
+.img-border {
+  padding: 3px;
+  border: 1px solid #ccc;
+}

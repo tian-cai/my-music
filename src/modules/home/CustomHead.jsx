@@ -19,6 +19,9 @@ class CustomHead extends React.Component {
         <Link to={"/billboard"} className="float-left ml20">
           排行榜
         </Link>
+        <Link to={"/singer"} className="float-left ml20">
+          歌手
+        </Link>
       </div>
     )
   }

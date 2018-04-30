@@ -14,7 +14,9 @@ let API = {
   GET_HOT_SEARCH_LIST:
     "http://mobilecdn.kugou.com/api/v3/search/hot?format=json&plat=0&count=30", //获取热门搜索列表
   GET_SEARCH_RESULT:
-    "http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword={keyword}&page=1&pagesize=20&showtype=1" //获取搜索结果
+    "http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword={keyword}&page=1&pagesize=20&showtype=1", //获取搜索结果
+  GET_RECOMMEND: serviceUrl + "/plist/index&json=true", //获取精选歌单
+  GET_SONGLIST: serviceUrl + "/plist/list/{id}?json=true"
 }
 
 export default API

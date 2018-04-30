@@ -3,7 +3,14 @@ import { createLogger } from "redux-logger"
 import thunkMiddleware from "redux-thunk"
 import rootReducer from "./rootReducer.js"
 
-let initState = {}
+let initState = {
+  recommendList: [],
+  rankTypeList: [], //音乐排行榜分类列表
+  billboardSong: {}, //音乐排行榜歌曲
+  songDetail: {},
+  singerTypeList: [],
+  singerList: []
+}
 const logger = createLogger()
 const store = createStore(
   rootReducer,

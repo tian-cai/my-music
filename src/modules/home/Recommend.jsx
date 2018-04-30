@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Carousel } from "antd"
-import { getBanner } from "./actionCreator.js"
+import { getBanner, getRecommend } from "./actionCreator.js"
 
 class Recommend extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class Recommend extends React.Component {
 
   componentWillMount() {
     this.props.dispatch(getBanner())
+    this.props.dispatch(getRecommend())
   }
 
   render() {

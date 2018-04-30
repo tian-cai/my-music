@@ -38,6 +38,28 @@
   margin-left: 10px;
 }
 
+.img40 {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+/* 关于字体 */
+.font12 {
+  font-size: 12px;
+}
+.font14 {
+  font-size: 14px;
+}
+.font16 {
+  font-size: 16px;
+}
+
+/* 关于颜色 */
+.color999 {
+  color: #999;
+}
+
 /* 回到顶部 */
 .ant-back-top {
   bottom: 100px;

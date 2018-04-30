@@ -1,5 +1,5 @@
 body {
-  background: #f0f2f5;
+  background: #f5f5f5;
   overflow-x: hidden;
 }
 .layout {
@@ -28,6 +28,25 @@ body {
   margin-bottom: 40px;
   min-height: 600px;
 }
+
+.main .main-left {
+  width: 240px;
+  border: 1px solid #d3d3d3;
+}
+.main .main-right {
+  background: #fff;
+}
+.main .main-right-top {
+  padding: 40px;
+  margin-left: 240px;
+  height: 230px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.main .main-right-bottom {
+  padding: 10px 40px;
+}
+
 .main .ant-spin-spinning {
   opacity: 1;
   display: inline-block;
@@ -35,11 +54,4 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.current-tab {
-  background-color: #80bd01;
-  color: #fff;
-  padding: 3px 4px;
-  border-radius: 3px;
 }
