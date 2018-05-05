@@ -7,7 +7,10 @@ export function getBanner() {
     axios
       .get(service.GET_BANNER)
       .then(response => {
-        console.log(response)
+        dispatch({
+          type: T.GET_NEWSONG,
+          data: response.data
+        })
       })
       .catch(error => {
         console.log(error)
@@ -20,7 +23,10 @@ export function getRecommend() {
     axios
       .get(service.GET_RECOMMEND)
       .then(response => {
-        console.log(response)
+        dispatch({
+          type: T.GET_RECOMMEND_SONG_LIST,
+          data: response.data.plist.list.info
+        })
       })
       .catch(error => {
         console.log(error)

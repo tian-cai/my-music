@@ -2,13 +2,15 @@ import { combineReducers } from "redux"
 import {
   rankTypeList,
   billboardSong,
-  recommendList
+  recommend,
+  newSong
 } from "./../modules/home/reducer.js"
 import { songDetail } from "./../modules/song/reducer.js"
 import { singerTypeList, singerList } from "./../modules/singer/reducer.js"
 
 let rootReducer = combineReducers({
-  recommendList,
+  recommend,
+  newSong,
   rankTypeList,
   billboardSong,
   songDetail,

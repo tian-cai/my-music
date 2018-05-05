@@ -87,3 +87,92 @@
 .text-right {
   text-align: right;
 }
+
+.h2 {
+  font-size: 1.4em;
+  margin: 1em;
+}
+
+.title {
+  border-bottom: 2px solid red;
+  height: 38px;
+  line-height: 38px;
+  font-size: 20px;
+}
+
+.block {
+  margin-bottom: 10px;
+}
+.songlist {
+}
+.song {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+.songlist li:nth-child(odd) {
+  background: #f7f7f7;
+}
+.song .song-key {
+  display: inline-block;
+  width: 5%;
+  text-align: center;
+}
+.song .song-filename {
+  display: inline-block;
+  width: 75%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.song .song-duration {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+}
+.singerlist {
+  margin-left: 240px;
+}
+.singer {
+  width: 20%;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.song-sheet {
+  width: 24%;
+  float: left;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 1%;
+  font-size: 14px;
+}
+
+.song-sheet > img {
+  width: 100%;
+}
+.song-sheet .song-sheet-title,
+.song-sheet .song-sheet-count {
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+.song-sheet .song-sheet-title {
+  bottom: 2px;
+  left: 0px;
+  padding: 5px;
+  width: 100%;
+}
+.song-sheet .song-sheet-title > p {
+  line-height: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+}
+.song-sheet .song-sheet-count {
+  right: 2px;
+  top: 2px;
+  padding: 4px;
+}

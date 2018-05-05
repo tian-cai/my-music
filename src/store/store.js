@@ -4,7 +4,8 @@ import thunkMiddleware from "redux-thunk"
 import rootReducer from "./rootReducer.js"
 
 let initState = {
-  recommendList: [],
+  recommend: [],
+  newSong: {},
   rankTypeList: [], //音乐排行榜分类列表
   billboardSong: {}, //音乐排行榜歌曲
   songDetail: {},

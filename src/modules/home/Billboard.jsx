@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import { getRankType, getBillboardSong } from "./actionCreator.js"
+import util from "./../util/util.js"
 import "./billboard.css"
 
 class Billboard extends React.Component {
@@ -60,21 +61,28 @@ class Billboard extends React.Component {
                   src={billboardSongInfo.banner7url.replace("{size}", 150)}
                 />
               </div>
-              <h2>{billboardSongInfo.rankname}</h2>
+              <h2 className="h2">{billboardSongInfo.rankname}</h2>
               <p>
                 <button>播放</button>
               </p>
             </div>
           )}
           <div className="main-right-bottom">
-            <h3>歌曲列表</h3>
-            <ul>
+            <h3 className="title">歌曲列表</h3>
+            <ul className="songlist">
               {billboardSongList &&
-                billboardSongList.map(ele => {
+                billboardSongList.map((ele, index) => {
                   return (
-                    <li key={ele.audio_id}>
-                      <span onClick={this.getSongDetail.bind(this, ele)}>
-                        {ele.remark}
+                    <li key={ele.audio_id} className="song">
+                      <span className="song-key">{index + 1}</span>
+                      <span
+                        className="song-filename"
+                        onClick={this.getSongDetail.bind(this, ele)}
+                      >
+                        {ele.filename}
+                      </span>
+                      <span className="song-duration">
+                        {util.changeSecondToMinute(ele.duration)}
                       </span>
                     </li>
                   )

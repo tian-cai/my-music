@@ -15,8 +15,10 @@ class Singer extends React.Component {
   }
 
   getSingerInfo(singerId) {
-    let { history } = this.props
-    history.push(`/singer/${singerId}`)
+    let otherWindow = window.open(
+      `http://www.kugou.com/yy/singer/home/${singerId}.html`
+    )
+    otherWindow.opener = null
   }
 
   render() {
@@ -29,10 +31,11 @@ class Singer extends React.Component {
             {singerTypeList.map(ele => {
               return (
                 <li
+                  className="rank-type"
                   key={ele.classid}
                   onClick={this.getSingerList.bind(this, ele.classid)}
                 >
-                  <img src={ele.imgurl} />
+                  <img src={ele.imgurl} className="img40 mr10" />
                   <span>{ele.classname}</span>
                 </li>
               )
@@ -40,15 +43,19 @@ class Singer extends React.Component {
           </ul>
         </div>
         <div>
-          <ul>
+          <ul className="singerlist">
             {singerList.map(ele => {
               return (
                 <li
+                  className="singer float-left"
                   key={ele.singerid}
                   onClick={this.getSingerInfo.bind(this, ele.singerid)}
                 >
-                  <img src={ele.imgurl.replace("{size}", 150)} />
-                  <span>{ele.singername}</span>
+                  <img
+                    src={ele.imgurl.replace("{size}", 150)}
+                    className="mb10"
+                  />
+                  <h4 className="text-center">{ele.singername}</h4>
                 </li>
               )
             })}
