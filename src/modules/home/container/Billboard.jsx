@@ -1,9 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
-import { getRankType, getBillboardSong } from "./actionCreator.js"
-import util from "./../util/util.js"
-import "./billboard.css"
+import { getRankType, getBillboardSong } from "./../actionCreator.js"
+import util from "./../../util/util.js"
+import SongList from "./../component/SongList.jsx"
+import "./../billboard.css"
 
 class Billboard extends React.Component {
   constructor(props) {
@@ -15,12 +16,12 @@ class Billboard extends React.Component {
     this.props.dispatch(getRankType())
   }
 
-  getSongList(rankId) {
+  getSongList(rankId, event) {
+    if (event.target.tagName != "LI") {
+      event.target = event.target.parentElement
+    }
+    util.curTab(event.target)
     this.props.dispatch(getBillboardSong(rankId))
-  }
-  getSongDetail(song) {
-    let { history, location } = this.props
-    history.push(`/song/${song.audio_id}`, { hash: song.hash })
   }
 
   render() {
@@ -62,32 +63,11 @@ class Billboard extends React.Component {
                 />
               </div>
               <h2 className="h2">{billboardSongInfo.rankname}</h2>
-              <p>
-                <button>播放</button>
-              </p>
             </div>
           )}
           <div className="main-right-bottom">
             <h3 className="title">歌曲列表</h3>
-            <ul className="songlist">
-              {billboardSongList &&
-                billboardSongList.map((ele, index) => {
-                  return (
-                    <li key={ele.audio_id} className="song">
-                      <span className="song-key">{index + 1}</span>
-                      <span
-                        className="song-filename"
-                        onClick={this.getSongDetail.bind(this, ele)}
-                      >
-                        {ele.filename}
-                      </span>
-                      <span className="song-duration">
-                        {util.changeSecondToMinute(ele.duration)}
-                      </span>
-                    </li>
-                  )
-                })}
-            </ul>
+            <SongList songList={billboardSongList} />
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import "./style/reset.css"
 import "./style/common.css"
 import "./style/app.css"
 import BackUp from "./modules/common/BackUp.jsx"
-import CustomHead from "./modules/home/CustomHead.jsx"
+import CustomHead from "./modules/home/component/CustomHead.jsx"
 import CustomRoute from "./modules/route/CustomRoute.jsx"
 
 class App extends React.Component {

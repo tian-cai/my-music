@@ -1,4 +1,5 @@
 import axios from "axios"
+import { message } from "antd"
 import service from "./../service/service.js"
 import * as T from "./../../store/actionType.js"
 
@@ -13,7 +14,7 @@ export function getSingerType() {
         })
       })
       .catch(error => {
-        console.log(error)
+        message.error(error || "服务器错误")
       })
   }
 }
@@ -29,20 +30,7 @@ export function getSingerList(classId) {
         })
       })
       .catch(error => {
-        console.log(error)
-      })
-  }
-}
-
-export function getSingerInfo(singerId) {
-  return dispatch => {
-    axios
-      .get(service.GET_SINGER_INFO.replace("{singerId}", singerId))
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
+        message.error(error || "服务器错误")
       })
   }
 }

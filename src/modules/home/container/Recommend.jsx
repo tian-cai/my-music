@@ -1,8 +1,9 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Carousel } from "antd"
-import { getBanner, getRecommend } from "./actionCreator.js"
-import util from "./../util/util.js"
+import { getBanner, getRecommend } from "./../actionCreator.js"
+import util from "./../../util/util.js"
+import SongList from "./../component/SongList.jsx"
 
 class Recommend extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Recommend extends React.Component {
     this.props.dispatch(getBanner())
     this.props.dispatch(getRecommend())
   }
+
   getSongSheet(specialid) {
     let otherWindow = window.open(
       `http://www.kugou.com/yy/special/single/${specialid}.html`
@@ -32,20 +34,7 @@ class Recommend extends React.Component {
         </Carousel>
         <div className="block">
           <h3 className="title">今日新歌</h3>
-          <ul className="songlist">
-            {newSong.data &&
-              newSong.data.map((ele, index) => {
-                return (
-                  <li key={ele.audio_id} className="song">
-                    <span className="song-key">{index + 1}</span>
-                    <span className="song-filename">{ele.filename}</span>
-                    <span className="song-duration">
-                      {util.changeSecondToMinute(ele.duration)}
-                    </span>
-                  </li>
-                )
-              })}
-          </ul>
+          <SongList songList={newSong.data} />
         </div>
         <div className="block">
           <h3 className="title">精选歌单</h3>
@@ -61,9 +50,19 @@ class Recommend extends React.Component {
                   >
                     <img src={ele.imgurl.replace("{size}", 480)} />
                     <div className="song-sheet-title">
-                      <p>{ele.specialname}</p>
-                      <span>{ele.username}</span>
-                      <span className="float-right">
+                      <p className="text-overflow" title={ele.specialname}>
+                        {ele.specialname}
+                      </p>
+                      <span
+                        title={ele.username}
+                        className="float-left song-title-author text-overflow"
+                      >
+                        {ele.username}
+                      </span>
+                      <span
+                        title={util.formatTime(ele.publishtime)}
+                        className="float-right song-title-time text-overflow"
+                      >
                         {util.formatTime(ele.publishtime)}
                       </span>
                     </div>

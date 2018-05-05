@@ -109,9 +109,13 @@
   height: 30px;
   line-height: 30px;
   font-size: 14px;
+  cursor: pointer;
 }
 .songlist li:nth-child(odd) {
   background: #f7f7f7;
+}
+.songlist li:hover {
+  background: #eaeaea;
 }
 .song .song-key {
   display: inline-block;
@@ -148,6 +152,7 @@
   margin-top: 10px;
   margin-right: 1%;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .song-sheet > img {
@@ -170,9 +175,27 @@
   line-height: 20px;
   height: 20px;
   margin-bottom: 5px;
+  width: 95%;
 }
+
+.song-sheet-title .song-title-author {
+  max-width: 40%;
+}
+.song-sheet-title .song-title-time {
+  max-width: 60%;
+}
+
 .song-sheet .song-sheet-count {
   right: 2px;
   top: 2px;
   padding: 4px;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active {
+  background: #e6e6e6 !important;
 }

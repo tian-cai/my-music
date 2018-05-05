@@ -5,7 +5,6 @@ import {
   recommend,
   newSong
 } from "./../modules/home/reducer.js"
-import { songDetail } from "./../modules/song/reducer.js"
 import { singerTypeList, singerList } from "./../modules/singer/reducer.js"
 
 let rootReducer = combineReducers({
@@ -13,7 +12,6 @@ let rootReducer = combineReducers({
   newSong,
   rankTypeList,
   billboardSong,
-  songDetail,
   singerTypeList,
   singerList
 })

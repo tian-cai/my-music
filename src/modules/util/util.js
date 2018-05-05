@@ -1,6 +1,7 @@
 let util = {
   changeSecondToMinute,
-  formatTime
+  formatTime,
+  curTab
 }
 
 function fillZero(num) {
@@ -15,5 +16,26 @@ function changeSecondToMinute(second) {
 
 function formatTime(time) {
   return time.split(" ")[0]
+}
+
+//切换tab时，给当前tab添加class
+function curTab(ele) {
+  ele.classList.add("active")
+  nextEle(ele)
+  preEle(ele)
+}
+
+function nextEle(ele) {
+  while (ele.nextElementSibling) {
+    ele.nextElementSibling.classList.remove("active")
+    ele = ele.nextElementSibling
+  }
+}
+
+function preEle(ele) {
+  while (ele.previousElementSibling) {
+    ele.previousElementSibling.classList.remove("active")
+    ele = ele.previousElementSibling
+  }
 }
 export default util

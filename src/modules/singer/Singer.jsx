@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { getSingerType, getSingerList } from "./actionCreator.js"
+import util from "./../util/util.js"
 
 class Singer extends React.Component {
   constructor(props) {
@@ -10,7 +11,12 @@ class Singer extends React.Component {
   componentWillMount() {
     this.props.dispatch(getSingerType())
   }
-  getSingerList(classId) {
+
+  getSingerList(classId, event) {
+    if (event.target.tagName != "LI") {
+      event.target = event.target.parentElement
+    }
+    util.curTab(event.target)
     this.props.dispatch(getSingerList(classId))
   }
 

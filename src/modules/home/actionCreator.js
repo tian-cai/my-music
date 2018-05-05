@@ -1,4 +1,5 @@
 import axios from "axios"
+import { message } from "antd"
 import service from "./../service/service.js"
 import * as T from "./../../store/actionType.js"
 
@@ -13,7 +14,7 @@ export function getBanner() {
         })
       })
       .catch(error => {
-        console.log(error)
+        message.error(error || "服务器错误")
       })
   }
 }
@@ -29,20 +30,7 @@ export function getRecommend() {
         })
       })
       .catch(error => {
-        console.log(error)
-      })
-  }
-}
-
-export function getRecommendSonglist(id) {
-  return dispatch => {
-    axios
-      .get(service.GET_SONGLIST.replace("{id}", id))
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
+        message.error(error || "服务器错误")
       })
   }
 }
@@ -58,7 +46,7 @@ export function getRankType() {
         })
       })
       .catch(error => {
-        console.log(error)
+        message.error(error || "服务器错误")
       })
   }
 }
@@ -68,14 +56,13 @@ export function getBillboardSong(rankId) {
     axios
       .get(service.GET_BILLBOARD_SONG.replace("{rankId}", rankId))
       .then(response => {
-        console.log(response)
         dispatch({
           type: T.GET_BILLBOARD_SONG_LIST,
           data: response.data
         })
       })
       .catch(error => {
-        console.log(error)
+        message.error(error || "服务器错误")
       })
   }
 }
